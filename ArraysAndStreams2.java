@@ -33,13 +33,26 @@ public class ArraysAndStreams2 {
                .sorted(String.CASE_INSENSITIVE_ORDER.reversed())
                .collect(Collectors.toList()));
 
-      //System.out.printf("Strings that start with a vowel: %S%n",
-      //        Arrays.stream(strings)
-      //                .
+            // Strings that start with a vowel (case insensitive)
+      System.out.printf("Strings that start with a vowel: %s%n",
+              Arrays.stream(strings)
+                      .filter(s -> s.matches("(?i)[aeiou].*"))
+                      .collect(Collectors.toList()));
 
+      // All strings concatenated into a single string and separated by a comma
+      System.out.printf("All strings: %s%n",
+              Arrays.stream(strings)
+                      .collect(Collectors.joining(", ")));
+
+      // Strings that contain more than 5 characters (case insensitive)
+      System.out.printf("Strings with more than 5 characters: %s%n",
+              Arrays.stream(strings)
+                      .filter(s -> s.length() > 5)
+                      .collect(Collectors.toList()));
 
    }
 } 
+
 
 
 /**************************************************************************
